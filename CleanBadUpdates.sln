@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanBadUpdates", "CleanBadUpdates\CleanBadUpdates.csproj", "{185A4E64-4BF1-4C5C-931C-25C0D55F7436}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{185A4E64-4BF1-4C5C-931C-25C0D55F7436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{185A4E64-4BF1-4C5C-931C-25C0D55F7436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{185A4E64-4BF1-4C5C-931C-25C0D55F7436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{185A4E64-4BF1-4C5C-931C-25C0D55F7436}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
