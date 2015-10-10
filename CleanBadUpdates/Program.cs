@@ -38,7 +38,7 @@ namespace CleanBadUpdates
                 _session = (UpdateSession) Activator.CreateInstance(t);
                 Console.WriteLine("Creating Search Object...");
                 _updateSearcher = _session.CreateUpdateSearcher();
-                Console.WriteLine("Starting search for all updates (This might take a few minutes)...");
+                Console.WriteLine("Starting search for all updates (This might take a while)...");
                 // Not joking, takes forever.
                 _callback = new AsyncUpdate();
                 _updateSearcher.BeginSearch("(IsInstalled=1) OR (IsInstalled=0 AND IsHidden=0)",
@@ -106,20 +106,21 @@ namespace CleanBadUpdates
 
                     Console.WriteLine("Uninstalling updates...");
                     Process process = null;
-                    foreach (string kB in installedKBs)
+                    for (int i = 0; i < installedKBs.Count; i++)
                     {
                         while (process != null && !process.HasExited)
                         {
                             Thread.Sleep(1000);
                         }
                         ProcessStartInfo start = new ProcessStartInfo("wusa.exe",
-                            string.Format("/uninstall /KB:{0} /norestart", kB))
+                            string.Format("/uninstall /KB:{0} /norestart", installedKBs[i]))
                         {
                             RedirectStandardError = true,
                             RedirectStandardOutput = true,
                             UseShellExecute = false
                         };
                         process = Process.Start(start);
+                        Console.WriteLine("Removing KB{0} ({1}/{2})", installedKBs[i], i + 1, installedKBs.Count);
                     }
                     while (process != null && !process.HasExited)
                     {
@@ -195,7 +196,7 @@ namespace CleanBadUpdates
                         FileInfo info = new FileInfo(file);
                         data += info.Length;
                         info.Delete();
-                        Console.WriteLine("\rDeleting: {0}", CompactPath(file, Console.WindowWidth - 1));
+                        Console.WriteLine("\rDeleting: {0}", CompactPath(file, Console.WindowWidth - 11));
                     }
 
                     // stole it
