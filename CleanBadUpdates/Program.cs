@@ -198,6 +198,8 @@ namespace CleanBadUpdates
                         info.Delete();
                         Console.WriteLine("\rDeleting: {0}", CompactPath(file, Console.WindowWidth - 11));
                     }
+                    // lol forgot to delete the directories
+                    Directory.Delete("C:\\$WINDOWS.~BT", true);
 
                     // stole it
                     string[] sizes = {"B", "KB", "MB", "GB"};
